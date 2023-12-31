@@ -1,0 +1,390 @@
+:root {
+    --first-color: white;
+    --second-color: #00ffff;
+    --third-color: #FF69B4;
+    --first-hover: rgba(255, 255, 255, 0.291);
+    --second-hover: #00ffff60;
+    --third-hover: #ff69b462;
+    --transition: all 1s;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(https://i.ibb.co/qMdFxQN/image-1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--first-color);
+    overflow: hidden;
+}
+
+.container {
+    height: 100%;
+
+}
+
+.profile-user {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.profile-user header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    margin-top: 40px;
+    margin-left: 40px;
+    color: var(--first-color);
+    transition: var(--transition);
+}
+
+.profile-user header p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 40px;
+    color: var(--first-color);
+    transition: var(--transition);
+}
+
+.profile-user a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid var(--first-color);
+    color: var(--first-color);
+    margin: 40px;
+    padding: 16px;
+    transition: ease-in-out .4s;
+}
+
+.profile-user a:hover {
+    background-color: var(--first-hover);
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
+}
+
+.label-default-theme {
+    width: 45px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    right: 450px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: var(--first-color);
+}
+
+.label-cyan-theme {
+    width: 45px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    right: 350px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: var(--second-color);
+}
+
+.label-hotpink-theme {
+    width: 45px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    right: 250px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: var(--third-color);
+}
+
+.default-theme,
+.cyan-theme,
+.hotpink-theme {
+    position: absolute;
+    display: none;
+}
+
+/* ========== cyann color themes ========== */
+.cyan-theme:checked~.profile-user h1,
+.cyan-theme:checked~.profile-user p,
+.cyan-theme:checked~.profile-user .btn-open-profile,
+.cyan-theme:checked~.overlay,
+.cyan-theme:checked~.overlay article h1,
+.cyan-theme:checked~.overlay article p,
+.cyan-theme:checked~.overlay main h1,
+.cyan-theme:checked~.overlay .card,
+.cyan-theme:checked~.overlay header a {
+    color: var(--second-color);
+    border-color: var(--second-color);
+    transition: var(--transition);
+}
+
+.cyan-theme:checked~.profile-user .btn-open-profile:hover,
+.cyan-theme:checked~.overlay .btn-back-profile:hover {
+    background-color: var(--second-hover);
+    color: var(--first-color);
+}
+
+
+.cyan-theme:checked~.overlay .card h4 {
+    background-color: #00ffff3d;
+    transition: var(--transition);
+}
+
+/* ========== hotpinkk color themes ========== */
+.hotpink-theme:checked~.profile-user h1,
+.hotpink-theme:checked~.profile-user p,
+.hotpink-theme:checked~.profile-user .btn-open-profile,
+.hotpink-theme:checked~.overlay,
+.hotpink-theme:checked~.overlay article h1,
+.hotpink-theme:checked~.overlay article p,
+.hotpink-theme:checked~.overlay main h1,
+.hotpink-theme:checked~.overlay .card,
+.hotpink-theme:checked~.overlay header a {
+    color: var(--third-color);
+    border-color: var(--third-color);
+    transition: var(--transition);
+}
+
+.hotpink-theme:checked~.profile-user .btn-open-profile:hover,
+.hotpink-theme:checked~.overlay .btn-back-profile:hover {
+    background-color: var(--third-hover);
+    color: var(--first-color);
+}
+
+
+.hotpink-theme:checked~.overlay .card h4 {
+    background-color: #ff69b43e;
+    transition: var(--transition);
+}
+
+/* ------------------------------Overlay------------------------------- */
+
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    color: var(--first-color);
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-image: url(https://i.ibb.co/qMdFxQN/image-1.png);
+    background-size: cover;
+}
+
+.overlay header {
+    text-align: left;
+    transition: var(--transition);
+    display: flex;
+    justify-content: space-between;
+}
+
+.overlay article h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.overlay article p {
+    /* width: 800px; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 40px;
+}
+
+.overlay header a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid var(--first-color);
+    color: var(--first-color);
+    padding: 16px 24px;
+    margin: 40px;
+    transition: ease-in-out .4s;
+}
+
+.overlay header a:hover {
+    background-color: var(--first-hover);
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
+}
+
+/* ---------------------------Card------------------------------------ */
+.container-card h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    width: max-content;
+    margin: 50px auto 0;
+    font-size: 60px;
+    border-bottom: 3px solid var(--first-color);
+    letter-spacing: 10px;
+    transition: var(--transition);
+}
+
+.card-wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.card {
+    width: 400px;
+    height: 300px;
+    border: 1px solid var(--first-color);
+    background-color: transparent;
+    margin: 80px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-wrapper li h4 {
+    display: block;
+    width: 100%;
+    height: 300px;
+    background-color: rgba(149, 149, 149, 0.465);
+    position: absolute;
+    bottom: 0;
+    line-height: 60px;
+    text-align: center;
+    font-size: 40px;
+    color: var(--first-color);
+    transition: var(--transition);
+    margin-bottom: -240px;
+    text-decoration: none;
+    color: var(--first-color);
+}
+
+.card-wrapper li h4 a {
+    text-decoration: none;
+    color: var(--first-color);
+}
+
+.card-wrapper header {
+    width: 100vw;
+    height: 300px;
+}
+
+.card .content {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: rgba(33, 33, 33, 0.298);
+}
+
+.card-wrapper .card:hover h4 {
+    margin: 0;
+    line-height: 300px;
+}
+
+
+
+
+
+
+/* ------------------------Animation-------------------- */
+
+.profile-user:target header {
+    animation: gesersampingkanan 1s;
+}
+
+.profile-user:target a {
+    animation: gesersampingkiri 1s;
+}
+
+.container .overlay:target label {
+    animation: zoomout 2s;
+}
+
+.overlay:target header article {
+    animation: gesersampingkanan 1s;
+}
+
+.overlay:target header a {
+    animation: gesersampingkiri 1s;
+}
+
+
+.overlay:target main h1 {
+    animation: zoomout 2s;
+}
+
+.overlay:target .container-card {
+    animation: geseratas 1s;
+}
+
+
+@keyframes gesersampingkanan {
+    0% {
+        opacity: 0;
+        margin-left: -50px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+
+@keyframes gesersampingkiri {
+    0% {
+        opacity: 0;
+        margin-right: -50px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-right: 40px;
+    }
+}
+
+@keyframes geseratas {
+    0% {
+        opacity: 0;
+        margin-top: -100px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes zoomout {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
